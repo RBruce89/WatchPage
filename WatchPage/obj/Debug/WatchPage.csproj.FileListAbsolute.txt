@@ -1,0 +1,10 @@
+C:\Users\Caden\source\repos\WatchPageSolution\WatchPage\bin\Debug\WatchPage.exe.config
+C:\Users\Caden\source\repos\WatchPageSolution\WatchPage\bin\Debug\WatchPage.exe
+C:\Users\Caden\source\repos\WatchPageSolution\WatchPage\bin\Debug\WatchPage.pdb
+C:\Users\Caden\source\repos\WatchPageSolution\WatchPage\obj\Debug\WatchPage.csprojAssemblyReference.cache
+C:\Users\Caden\source\repos\WatchPageSolution\WatchPage\obj\Debug\WatchPage.Form1.resources
+C:\Users\Caden\source\repos\WatchPageSolution\WatchPage\obj\Debug\WatchPage.Properties.Resources.resources
+C:\Users\Caden\source\repos\WatchPageSolution\WatchPage\obj\Debug\WatchPage.csproj.GenerateResource.cache
+C:\Users\Caden\source\repos\WatchPageSolution\WatchPage\obj\Debug\WatchPage.csproj.CoreCompileInputs.cache
+C:\Users\Caden\source\repos\WatchPageSolution\WatchPage\obj\Debug\WatchPage.exe
+C:\Users\Caden\source\repos\WatchPageSolution\WatchPage\obj\Debug\WatchPage.pdb
