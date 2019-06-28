@@ -26,12 +26,46 @@ namespace WatchPage
 
         private void checkBtn_Click(object sender, EventArgs e)
         {
+            string url = urlTxb.Text;
 
+            using (HttpClient client = new HttpClient())
+            {
+                using (HttpResponseMessage response = client.GetAsync(url).Result)
+                {
+                    using (HttpContent sourceCode = response.Content)
+                    {
+                        String fileName = url.Replace("://", "-").Replace("/", "-");
+                        String stored = System.IO.File.ReadAllText(fileName + ".txt");
+                        
+                        string result = sourceCode.ReadAsStringAsync().Result;
+
+                        if (!string.Equals(stored, result))
+                        {
+                            String messageText = "The Website's sourcecode has changed!";
+                            MessageBox.Show(messageText, "Change detected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                }
+            }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Add(object sender, EventArgs e)
         {
+            string url = urlTxb.Text;
 
+            using (HttpClient client = new HttpClient())
+            {
+                using (HttpResponseMessage response = client.GetAsync(url).Result)
+                {
+                    using (HttpContent sourceCode = response.Content)
+                    {
+                        String fileName = url.Replace("://", "-").Replace("/", "-");
+
+                        string result = sourceCode.ReadAsStringAsync().Result;
+                        System.IO.File.WriteAllText(fileName + ".txt", result);
+                    }
+                }
+            }
         }
     }
 }

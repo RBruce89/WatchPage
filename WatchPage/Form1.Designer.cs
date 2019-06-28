@@ -84,6 +84,7 @@
             this.addBtn.TabIndex = 4;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.Add);
             // 
             // label1
             // 
@@ -103,7 +104,6 @@
             this.label2.Size = new System.Drawing.Size(50, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "Hours:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
