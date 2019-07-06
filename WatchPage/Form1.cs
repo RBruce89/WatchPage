@@ -26,23 +26,30 @@ namespace WatchPage
 
         private void checkBtn_Click(object sender, EventArgs e)
         {
-            string url = urlTxb.Text;
-
-            using (HttpClient client = new HttpClient())
+            string[] url = new string[urlLbx.Items.Count];
+            for (int i = 0; i < urlLbx.Items.Count; i++)
             {
-                using (HttpResponseMessage response = client.GetAsync(url).Result)
-                {
-                    using (HttpContent sourceCode = response.Content)
-                    {
-                        String fileName = url.Replace("://", "-").Replace("/", "-");
-                        String stored = System.IO.File.ReadAllText(fileName + ".txt");
-                        
-                        string result = sourceCode.ReadAsStringAsync().Result;
+                url[i] = urlLbx.Items[i].ToString();
+            }
 
-                        if (!string.Equals(stored, result))
+            for (var i = 0; i < url.Length; i++)
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    using (HttpResponseMessage response = client.GetAsync(url[i]).Result)
+                    {
+                        using (HttpContent sourceCode = response.Content)
                         {
-                            String messageText = "The Website's sourcecode has changed!";
-                            MessageBox.Show(messageText, "Change detected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            String fileName = url[i].Replace("://", "-").Replace("/", "-");
+                            String stored = System.IO.File.ReadAllText(fileName + ".txt");
+
+                            string result = sourceCode.ReadAsStringAsync().Result;
+
+                            if (!string.Equals(stored, result))
+                            {
+                                String messageText = url[i] + " sourcecode has changed!";
+                                MessageBox.Show(messageText, "Change detected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
                         }
                     }
                 }
@@ -52,19 +59,28 @@ namespace WatchPage
         private void Add(object sender, EventArgs e)
         {
             string url = urlTxb.Text;
-
-            using (HttpClient client = new HttpClient())
+            if (Uri.IsWellFormedUriString(url, UriKind.Absolute))
             {
-                using (HttpResponseMessage response = client.GetAsync(url).Result)
+                using (HttpClient client = new HttpClient())
                 {
-                    using (HttpContent sourceCode = response.Content)
+                    using (HttpResponseMessage response = client.GetAsync(url).Result)
                     {
-                        String fileName = url.Replace("://", "-").Replace("/", "-");
+                        using (HttpContent sourceCode = response.Content)
+                        {
+                            String fileName = url.Replace("://", "-").Replace("/", "-");
 
-                        string result = sourceCode.ReadAsStringAsync().Result;
-                        System.IO.File.WriteAllText(fileName + ".txt", result);
+                            string result = sourceCode.ReadAsStringAsync().Result;
+                            System.IO.File.WriteAllText(fileName + ".txt", result);
+                        }
                     }
                 }
+                
+                urlLbx.Items.Add(url);
+                urlTxb.Text = null;
+            } else
+            {
+                String messageText = "Please enter a valid URL";
+                MessageBox.Show(messageText, "Invalid URL", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }
