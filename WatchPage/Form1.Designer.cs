@@ -47,7 +47,7 @@
             this.watchBtn.Location = new System.Drawing.Point(268, 197);
             this.watchBtn.Name = "watchBtn";
             this.watchBtn.Size = new System.Drawing.Size(133, 71);
-            this.watchBtn.TabIndex = 0;
+            this.watchBtn.TabIndex = 4;
             this.watchBtn.Text = "Watch";
             this.watchBtn.UseVisualStyleBackColor = true;
             this.watchBtn.Click += new System.EventHandler(this.watchBtn_Click);
@@ -57,7 +57,7 @@
             this.urlTxb.Location = new System.Drawing.Point(12, 12);
             this.urlTxb.Name = "urlTxb";
             this.urlTxb.Size = new System.Drawing.Size(250, 22);
-            this.urlTxb.TabIndex = 1;
+            this.urlTxb.TabIndex = 0;
             // 
             // indacatorLbl
             // 
@@ -74,14 +74,15 @@
             this.urlLbx.Location = new System.Drawing.Point(12, 40);
             this.urlLbx.Name = "urlLbx";
             this.urlLbx.Size = new System.Drawing.Size(250, 228);
-            this.urlLbx.TabIndex = 3;
+            this.urlLbx.TabIndex = 0;
+            this.urlLbx.TabStop = false;
             // 
             // addBtn
             // 
             this.addBtn.Location = new System.Drawing.Point(268, 12);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(127, 23);
-            this.addBtn.TabIndex = 4;
+            this.addBtn.TabIndex = 1;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.Add);
@@ -119,14 +120,14 @@
             this.daysNUD.Location = new System.Drawing.Point(341, 89);
             this.daysNUD.Name = "daysNUD";
             this.daysNUD.Size = new System.Drawing.Size(57, 22);
-            this.daysNUD.TabIndex = 12;
+            this.daysNUD.TabIndex = 2;
             // 
             // hoursNUD
             // 
             this.hoursNUD.Location = new System.Drawing.Point(341, 124);
             this.hoursNUD.Name = "hoursNUD";
             this.hoursNUD.Size = new System.Drawing.Size(57, 22);
-            this.hoursNUD.TabIndex = 13;
+            this.hoursNUD.TabIndex = 3;
             // 
             // Form1
             // 

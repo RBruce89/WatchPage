@@ -20,6 +20,7 @@ namespace WatchPage
         {
         }
 
+        // Start timer and compare at specified intervals when watch button is clicked
         private async void watchBtn_Click(object sender, EventArgs e)
         {
             Boolean runCheck = true;
@@ -47,6 +48,7 @@ namespace WatchPage
             }
         }
 
+        // Save source code for the page in add box and add that page to the watch list
         private void Add(object sender, EventArgs e)
         {
             string url = urlTxb.Text;
@@ -75,6 +77,7 @@ namespace WatchPage
             }
         }
 
+        // Check saved source code against webpage's current source code for each page on the list
         private void Compare()
         {
             string[] url = new string[urlLbx.Items.Count];
@@ -112,6 +115,7 @@ namespace WatchPage
             }
         }
 
+        // Determine pause intervals from information in the numeric up downs
         private Boolean PauseTimer()
         {
             int days = Int32.Parse(daysNUD.Text);
